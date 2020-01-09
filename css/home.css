@@ -1,0 +1,28 @@
+/*homepage styles*/
+.navigation-bar>.nav-wrapper>.links-wrapper>.active a{
+	color:#F3A006;
+	border-bottom: 2px solid #F3A006;
+}
+
+.hero{
+	display: flex;
+	justify-content: center;
+	width: 100%;
+	background-color: white;
+	padding:80px 0px;
+	margin-top: 5%;
+}
+.hero>.body-wrapper>.title{
+	text-align: center;
+	font-weight: 300;
+	font-size: 4rem;
+}
+.hero>.body-wrapper>.sub-title{
+	text-align: center;
+	font-weight: 300;
+	font-size: 2rem;
+	
+}
+.hero>.body-wrapper>.sub-title>.highlight{
+	color: red;
+}

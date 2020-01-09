@@ -1,0 +1,20 @@
+/*aboutpage styles*/
+.navigation-bar>.nav-wrapper>.links-wrapper>.active a{
+	color:#F3A006;
+	border-bottom: 2px solid #F3A006;
+}
+
+.hero{
+	display: flex;
+	justify-content: center;
+	width: 100%;
+	margin-top: 9%;
+}
+.hero>.text-area{
+	display: flex;
+	justify-content: center;
+	width: 80%;
+	color: #797979;
+	text-align: justify;
+	font-size: 1.2rem;	
+}

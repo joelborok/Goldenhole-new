@@ -1,0 +1,76 @@
+/*contactpage styles*/
+.navigation-bar>.nav-wrapper>.links-wrapper>.active a{
+	color:#F3A006;
+	border-bottom: 2px solid #F3A006;
+}
+
+.hero{
+	display: flex;
+	justify-content: center;
+}
+
+.hero>.body-wrapper{
+	margin-top: 1%;
+	margin-bottom: 1%;
+}
+
+.hero>.body-wrapper>.body-element>.body-heading{
+	font-size: 1.8rem;
+	margin-bottom: 25%;
+}
+.hero>.body-wrapper>.body-element>.body-text{
+	margin-bottom: 25%;
+}
+
+.hero>.body-wrapper> form .form-element input{
+	border-radius: 8px;
+	border: 1px solid #707070;
+	height: 20px;
+	width: 250px;
+}
+.hero>.body-wrapper> form .form-element textarea{
+	width: 250px;	
+	border-color: #707070;
+}
+.hero>.body-wrapper> form .form-button{
+	display: flex;
+	justify-content: center;
+	margin-top: 5%;
+}
+.hero>.body-wrapper> form .form-button button{
+	border-radius: 6px;
+	border:1px solid #0069D9;
+	background-color: #0069D9;
+	font-size: 1rem;
+	color: white;
+	padding:5px;
+	width:90px;
+}
+
+.border-line{
+	display: flex;
+	justify-content: center;
+}
+.border-line>.border{
+	width: 80%;
+	border-bottom:1px solid #707070;
+}
+.address-wrapper{
+	display: flex;
+	justify-content: center;
+}
+
+.address-wrapper>.container>.contact{
+	width:250px;
+
+}
+.address-wrapper>.container>.contact i{
+	color:#707070;
+	font-size: 2rem;
+
+}
+.address-wrapper>.container>.contact span{
+	font-size: 0.8rem;
+	vertical-align: super;
+	padding-left: 10px;
+}
