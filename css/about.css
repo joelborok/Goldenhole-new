@@ -7,14 +7,23 @@
 .hero{
 	display: flex;
 	justify-content: center;
+	margin-top: 6%;
 	width: 100%;
-	margin-top: 9%;
 }
-.hero>.text-area{
+.hero>.text-wrapper{
+	margin-left: 15%;
+	text-align: justify;
+	width: 65%;
+}
+.hero>.text-wrapper>.text-area{
 	display: flex;
 	justify-content: center;
 	width: 80%;
 	color: #797979;
 	text-align: justify;
 	font-size: 1.2rem;	
+}
+
+.custom-heading-1{
+	font-size:1.5rem;
 }

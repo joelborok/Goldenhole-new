@@ -26,3 +26,20 @@
 .hero>.body-wrapper>.sub-title>.highlight{
 	color: red;
 }
+
+@media(max-width:800px){
+	.hero>.body-wrapper>.title{
+		font-size: 3rem;
+	}
+	.hero>.body-wrapper>.sub-title{
+		font-size: 1.5rem;
+	}
+}
+@media(max-width:450px){
+	.hero>.body-wrapper>.title{
+		font-size: 2rem;
+	}
+	.hero>.body-wrapper>.sub-title{
+		font-size: 1rem;
+	}
+}
