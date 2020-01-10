@@ -27,3 +27,12 @@
 .custom-heading-1{
 	font-size:1.5rem;
 }
+
+@media(max-width:800px){
+	.hero>.text-wrapper{
+		width: 90%;
+	}
+	.hero>.text-wrapper>.text-area{
+		width: 90%;
+	}
+}
