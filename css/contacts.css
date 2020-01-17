@@ -1,4 +1,11 @@
 /*contactpage styles*/
+body{
+	background-image: url("bg_3.jpg");
+	background-position: center;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-size: cover;
+}
 .navigation-bar>.nav-wrapper>.links-wrapper>.active a{
 	color:#F3A006;
 	border-bottom: 2px solid #F3A006;
@@ -23,12 +30,14 @@
 }
 
 .hero>.body-wrapper> form .form-element input{
+	background: #F5F5F5;
 	border-radius: 8px;
 	border: 1px solid #707070;
 	height: 20px;
 	width: 250px;
 }
 .hero>.body-wrapper> form .form-element textarea{
+	background: #F5F5F5;
 	width: 250px;	
 	border-color: #707070;
 }

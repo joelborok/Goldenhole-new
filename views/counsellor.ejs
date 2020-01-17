@@ -62,82 +62,28 @@
 
 	<section class="counsellors">
 		<div class="scroller">
+			<% Counsellors.forEach(function(counsellor){ %>
 			<div class="images-collection">
 				<div class="image-wrapper">
 					<div class="image-box">
-						<img src="counsellor1.jpg" class="custom-image">
+						<img src="<%=counsellor.image%>" class="custom-image">
 					</div>
-					<a href="#">
+					<a href="/counsellor/<%=counsellor._id%>">
 					<div class="image-hover">
-						hello every one I am some one.
+						<div class="text">
+							<%=counsellor.bio_data.substring(0,60);%>							
+						</div>
 					</div>
 					</a>	
 				</div>
 				<div class="titles-wrapper">
 						<div class="titles">
-							<div class="heading-1"><a href="#">Counsellor</a></div>
-							<div class="heading-2"><a href="#">Teacher</a></div>							
+							<div class="heading-1"><a href="/counsellor/<%=counsellor._id%>"><%=counsellor.name%></a></div>
+							<div class="heading-2"><a href="/counsellor/<%=counsellor._id%>"><%=counsellor.designation%></a></div>							
 						</div>
 				</div>
 			</div>
-
-			<div class="images-collection">
-				<div class="image-wrapper">
-					<div class="image-box">
-						<img src="counsellor1.jpg" class="custom-image">
-					</div>
-					<a href="#">
-					<div class="image-hover">
-						hello every one I am some one.
-					</div>
-					</a>	
-				</div>
-				<div class="titles-wrapper">
-						<div class="titles">
-							<div class="heading-1"><a href="#">Counsellor</a></div>
-							<div class="heading-2"><a href="#">Teacher</a></div>							
-						</div>
-				</div>
-			</div>
-
-			<div class="images-collection">
-				<div class="image-wrapper">
-					<div class="image-box">
-						<img src="counsellor1.jpg" class="custom-image">
-					</div>
-					<a href="#">
-					<div class="image-hover">
-						hello every one I am some one.
-					</div>
-					</a>	
-				</div>
-				<div class="titles-wrapper">
-						<div class="titles">
-							<div class="heading-1"><a href="#">Counsellor</a></div>
-							<div class="heading-2"><a href="#">Teacher</a></div>							
-						</div>
-				</div>
-			</div>
-
-			<div class="images-collection">
-				<div class="image-wrapper">
-					<div class="image-box">
-						<img src="counsellor1.jpg" class="custom-image">
-					</div>
-					<a href="#">
-					<div class="image-hover">
-						hello every one I am some one.
-					</div>
-					</a>	
-				</div>
-				<div class="titles-wrapper">
-						<div class="titles">
-							<div class="heading-1"><a href="#">Counsellor</a></div>
-							<div class="heading-2"><a href="#">Teacher</a></div>							
-						</div>
-				</div>
-			</div>
-				
+			<%});%>
 		</div>
 	</section>
 

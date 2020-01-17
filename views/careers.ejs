@@ -60,6 +60,7 @@
 				<div class="text">
 					Subscribe to be notified:
 				</div>
+				<form method="POST" action="/careers/notification">
 				<div class="controls-wrapper">
 					<div class="input">
 						<input type="email" name="email">
@@ -68,13 +69,13 @@
 						<button class="custom-button">Subscribe</button>
 					</div>
 				</div>
-				
+				</form>
 			</div>
 		</div>
 	</section>
 
 	<section class="form-area">
-		<form>
+		<form method="POST" action="/upload" enctype="multipart/form-data">
 			<div class="form-box">
 				<div class="form-row">
 					 <div class="heading">
@@ -86,7 +87,7 @@
 					 	<label>*First Name:</label>	
 					 </div>	 
 					  <div class="form-element">
-					 	<input type="text" name="name" class="form-design">	
+					 	<input type="text" name="firstName" class="form-design">	
 					 </div>	
 				</div>
 				<div class="form-row">
@@ -94,7 +95,7 @@
 					 	<label>*Last Name:</label>	
 					 </div>	 
 					  <div class="form-element">
-					 	<input type="text" name="name" class="form-design">	
+					 	<input type="text" name="lastName" class="form-design">	
 					 </div>	
 				</div>
 				<div class="form-row">
@@ -102,7 +103,7 @@
 					 	<label>*Email:</label>	
 					 </div>	 
 					  <div class="form-element">
-					 	<input type="text" name="name" class="form-design">	
+					 	<input type="text" name="email" class="form-design">	
 					 </div>	
 				</div>
 				<div class="form-row">
@@ -110,7 +111,7 @@
 					 	<label>*Position for applying:</label>	
 					 </div>	 
 					  <div class="form-element">
-					 	<input type="text" name="name" class="form-design">	
+					 	<input type="text" name="position" class="form-design">	
 					 </div>	
 				</div>
 				<div class="form-row">
@@ -118,7 +119,7 @@
 					 	<label>*Attach your resume:</label>	
 					 </div>	 
 					  <div class="form-element">
-					 	<input type="file" name="name" class="form-design">	
+					 	<input type="file" name="upload" class="form-design">	
 					 </div>	
 				</div>
 				<div class="form-button">

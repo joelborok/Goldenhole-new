@@ -1,4 +1,11 @@
 /*counsellor page styles*/
+body{
+	background-image: url("bg_3.jpg");
+	background-position: center;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-size: cover;
+}
 .navigation-bar>.nav-wrapper>.links-wrapper>.active a{
 	color:#F3A006;
 	border-bottom: 2px solid #F3A006;
@@ -26,16 +33,15 @@
 
 .counsellors{
 	display: flex;
-	width:80%;
+	width:100%;
 	justify-content: center;
 	
 }
 .scroller{
-	margin-left: 20%;
-	display: flex;
-	overflow-x: scroll;
-	overflow-y: hidden;
-	white-space: nowrap;
+	margin-top: 2%;
+	margin-left: 3%;
+	display:grid;
+	grid-template-columns: auto auto auto;
 }
 
 .images-collection{
@@ -54,18 +60,37 @@
   	text-align: center;
   	transition: visible 5s;
 }
+
 .images-collection>.image-wrapper> a .image-hover{
 	position: absolute;
   	width: 100%;
   	height: 100%;
   	visibility: hidden;
   	/*overflow: hidden;*/
-  	top:35%;
+  	top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    margin: 0;
+    border: 5px solid rgba(0, 0, 0, 0.1);
+    background-color: rgba(255, 255, 255, 0.90);
+    opacity: 0;
+  	/*top:35%;*/
   	color:white;
 
 }
+.images-collection>.image-wrapper> a .image-hover>.text{
+	margin-top: 120px;
+    text-align: center;
+    color: #222;
+}
 .images-collection .image-wrapper:hover a .image-hover{
  	visibility: visible;
+ 	 opacity: 1;
+  	/*top:35%;*/
+}
+.images-collection .image-wrapper:hover a .image-hover.text{
+ 	top:35%;
 }
 
 .images-collection>.image-wrapper>.image-box> img.custom-image{
@@ -97,9 +122,8 @@
 
 @media(max-width:800px){
 	.scroller{
-		display: flex;
-		flex-direction: column;
-		overflow-x: hidden;
+		display:grid;
+		grid-template-columns: auto;
 	}
 	.hero>.heading-wrapper>.sub-heading{
 		width: 100%;

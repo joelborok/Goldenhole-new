@@ -1,4 +1,11 @@
 /*counsellingpage styles*/
+body{
+	background-image: url("bg_2.jpg");
+	background-position: center;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-size: cover;
+}
 .navigation-bar>.nav-wrapper>.links-wrapper>.active a{
 	color:#F3A006;
 	border-bottom: 2px solid #F3A006;
@@ -8,6 +15,7 @@
 	background-color: white;
 	display: flex;
 	justify-content: center;
+	background: rgba(255, 255, 255, 0.5);
 	width: 100%;
 }
 .hero>.title-wrapper{
@@ -32,13 +40,13 @@
 	margin-bottom: 3%;
 	display: flex;
 	justify-content: center;
-	background-color: #F5F5F5;
 }
 .form-area> form .form-box{
 	border:1px solid #707070;
 	padding:40px;
 	border-radius: 10px;
 	background-color: white;
+	background: rgba(255, 255, 255, 0.3);
 }
 
 .form-area> form .form-box>.form-row{
@@ -50,6 +58,7 @@
 	
 }
 .form-area> form .form-box>.form-row>.form-element>input.form-design{
+	background-color: #F5F5F5;
 	border-radius: 5px;
 	border:1px solid #707070;
 	height: 25px;

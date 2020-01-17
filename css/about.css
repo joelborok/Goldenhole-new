@@ -1,4 +1,11 @@
 /*aboutpage styles*/
+body{
+	background-image: url("bg_2.jpg");
+	background-position: center;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-size: cover;
+}
 .navigation-bar>.nav-wrapper>.links-wrapper>.active a{
 	color:#F3A006;
 	border-bottom: 2px solid #F3A006;
@@ -7,11 +14,11 @@
 .hero{
 	display: flex;
 	justify-content: center;
-	margin-top: 6%;
+	margin-top: 8%;
 	width: 100%;
 }
 .hero>.text-wrapper{
-	margin-left: 15%;
+	margin-left: 18%;
 	text-align: justify;
 	width: 65%;
 }
@@ -27,12 +34,30 @@
 .custom-heading-1{
 	font-size:1.5rem;
 }
+@media(max-width:1100px){
+	.hero{
 
+	margin-top: 12%;
+	
+ }	
+}
+@media(max-width:980px){
+	.hero{
+
+	margin-top: 15%;
+	
+ }	
+}
 @media(max-width:800px){
+	.hero{
+
+	margin-top: 20%;
+	
+ }	
 	.hero>.text-wrapper{
-		width: 90%;
+		width: 80%;
 	}
 	.hero>.text-wrapper>.text-area{
-		width: 90%;
+		width: 80%;
 	}
 }
