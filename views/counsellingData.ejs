@@ -27,8 +27,9 @@
 						<a href="/logout">Logout!</a>
 					</div>
 					<div class="nav-link ">
-						<a href="/counsellingData">counsellingData</a>
+						<a href="/admissionNotification">admissionNotification</a>
 					</div>
+					
 					<div class="nav-link">
 						<a href="/careersNotification">careersNotification</a>
 					</div>
@@ -64,17 +65,31 @@
 					<th>phone</th>
 					<th>email</th>
 					<th>notified</th>
-					<th>update</th>
+					<th>Control</th>
+					<th>Delete button</th>
 				</tr>
 				 <%counsellingData.forEach(function(counselling){%>
 				 <tr>
-				 	<th><%=counselling.name%></th>
-				 	<th><%=counselling.gender%></th>
-				 	<th><%=counselling.date%></th>
-				 	<th><%=counselling.phone%></th>
-				 	<th><%=counselling.email%></th>
-				 	<th><%=counselling.notified%></th>
-				 	<th></th>
+				 	<td><%=counselling.name%></td>
+				 	<td><%=counselling.gender%></td>
+				 	<td><%=counselling.date%></td>
+				 	<td><%=counselling.phone%></td>
+				 	<td><%=counselling.email%></td>
+				 	<td><%=counselling.notified%></td>
+				 	<% if(counselling.notified){%>
+				 	<td>completed</td>
+				    <%}else{%>
+				    <form method="POST" action="/counsellingData/<%=counselling._id%>">
+				    	<td><button>update</button></td>
+				    </form>
+				    <%}%>
+				    <form method="POST" action="/counsellingData/<%=counselling._id%>/remove">
+				    	<% if(counselling.notified){%>
+				    		<td><button>delete</button></td>
+				    	<%}else{%>
+				    		<td>Not Completed</td>
+				    	<%};%>
+				    </form>
 				 </tr>
 				 <%});%>
 			</table>

@@ -2,7 +2,7 @@
 <html>
 <head>
 	<meta charset="utf-8">
-	<title>counsellingData</title>
+	<title>admissionNotification</title>
 	 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 	 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -27,9 +27,6 @@
 						<a href="/logout">Logout!</a>
 					</div>
 					<div class="nav-link ">
-						<a href="/admissionNotification">admissionNotification</a>
-					</div>
-					<div class="nav-link ">
 						<a href="/counsellingData">counsellingData</a>
 					</div>
 					<div class="nav-link">
@@ -38,7 +35,9 @@
 					<div class="nav-link">
 						<a href="/careersApplication">careersApplication</a>
 					</div>
-					
+					<div class="nav-link">
+						<a href="/contactsNotification">contactsNotification</a>
+					</div>
 					<div class="nav-link">
 						<a href="/newCounsellor">newCounsellor</a>
 					</div>
@@ -54,33 +53,34 @@
 		<div class="body-wrapper">
 			<div class="heading">
 				<div class="header">
-					Counselling notification
+					Career Notification
 				</div>
 			</div>	
 			<table border="solid">
 				<tr>
-					<th>Name</th>
-					<th>Email</th>
-					<th>Question</th>
-					<th>notified</th>
+					<th>Name</th>	
+					<th>Course</th>
+					<th>email</th>
+					<th>notofied</th>
 					<th>Control</th>
 					<th>delete button</th>
 				</tr>
-				 <%ContactsPage.forEach(function(application){%>
+				 
 				 <tr>
-				 	<td><%=application.name%></td>
-				 	<td><%=application.email%></td>
-				 	<td><%=application.question%></td>
-				 	<td><%=application.notified%></td>
-				 	<% if(application.notified){%>
+				 <% Admission.forEach(function(admission){%>
+				 	<td><%=admission.name%></td>
+				 	<td><%=admission.course%></td>
+				 	<td><%=admission.email%></td>
+				 	<td><%=admission.notified%></td>
+				 	<% if(admission.notified){%>
 				 	<td>completed</td>
 				    <%}else{%>
-				    <form method="POST" action="/contactsNotification/<%=application._id%>">
+				    <form method="POST" action="/admissionNotification/<%=admission._id%>">
 				    	<td><button>update</button></td>
 				    </form>
 				    <%}%>
-				    <form method="POST" action="/contactsNotification/<%=application._id%>/remove">
-				    	<% if(application.notified){%>
+				    <form method="POST" action="/admissionNotification/<%=admission._id%>/remove">
+				    	<% if(admission.notified){%>
 				    		<td><button>delete</button></td>
 				    	<%}else{%>
 				    		<td>Not Completed</td>

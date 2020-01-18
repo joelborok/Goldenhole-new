@@ -1,0 +1,104 @@
+/*careerpage styles*/
+.navigation-bar>.nav-wrapper>.links-wrapper>.active a{
+	color:#F3A006;
+	border-bottom: 2px solid #F3A006;
+}
+	body{
+	background-image: url("bg_3.jpg");
+	background-position: center;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-size: cover;
+}
+.hero{
+	display: flex;
+	justify-content: center;
+}
+
+.hero>.body-wrapper{
+	margin-top: 3%;
+	border-bottom: 1px solid #707070;
+	padding-bottom: 1%;
+}
+.hero>.body-wrapper>.heading>.header{
+	font-size: 1.5rem;
+}
+
+.hero>.body-wrapper>.non-headings>.text{
+	text-align: center;
+	font-size: 1.2rem;
+}
+.hero>.body-wrapper>.non-headings> form .controls-wrapper{
+	display: flex;
+	justify-content: center;
+}
+.hero>.body-wrapper>.non-headings> form .controls-wrapper>.input input{
+	border-radius: 5px;
+	border:1px solid #707070;
+	background: #F5F5F5;
+	height: 25px;
+}
+.hero>.body-wrapper>.non-headings> form .controls-wrapper>.button button{
+	border-radius: 4px;
+	border:1px solid #0069D9;
+	background-color: #0069D9;
+	font-size: 1rem;
+	color: white;
+	padding:5px;
+	width:100px;
+	margin-left: 10px;
+}
+
+.form-area{
+	padding-top: 5%;
+	padding-bottom: 3%;
+	display: flex;
+	justify-content: center;
+}
+
+.form-area> form .form-box{
+	width: 100%;
+	border:1px solid #707070;
+	padding:40px 60px;
+	border-radius: 10px;
+}
+.form-area> form .form-box>.form-button{
+	display: flex;
+	justify-content: center;
+	margin-top: 30px;
+}
+.form-area> form .form-box>.form-button button{
+ 	border-radius: 15px;
+	border:1px solid #0069D9;
+	background-color: #0069D9;
+	font-size: 0.8rem;
+	color: white;
+	padding:5px;
+	width:70px;
+}
+.form-area> form .form-box>.form-row{
+	width: 100%;
+}
+.form-area> form .form-box>.form-row{
+	width: 100%;
+}
+.form-area> form .form-box>.form-row>.heading{
+	margin-bottom: 3%;
+}
+.form-area> form .form-box>.form-row>.heading label{
+	font-size: 1.6rem;
+	font-weight: 300;
+}
+.form-area> form .form-box>.form-row>.form-element{
+	margin-bottom: 2%;
+}
+.form-area> form .form-box>.form-row>.form-element label{
+	font-size: 1rem;
+}
+.form-area> form .form-box>.form-row>.form-element input{
+	border-radius: 5px;
+	border:1px solid #707070;
+	background: #F5F5F5;
+	height: 25px;
+	width: 100%;
+}

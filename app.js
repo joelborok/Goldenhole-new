@@ -9,7 +9,9 @@ const LocalStrategy  		= require("passport-local");
 const passportLocalMongoose	= require("passport-local-mongoose");	
 const User     				= require("./user");
 const multer				= require("multer");
+const fs 					= require("fs");
 const app            		= express();
+var   fileName;
 
 //============================
 //           Configurations
@@ -34,7 +36,9 @@ passport.deserializeUser(User.deserializeUser());
 
 mongoose.set('useNewUrlParser', true);
 mongoose.set('useUnifiedTopology', true);
+mongoose.set('useFindAndModify', false);
 mongoose.connect("mongodb://localhost/goldehole_01");
+
 
 /*const storage=multer.diskStorage({
 	destination:function(req,file,cb){
@@ -46,7 +50,8 @@ mongoose.connect("mongodb://localhost/goldehole_01");
 const storage = multer.diskStorage({
   destination: "uploads/",
   filename: function (req, file, cb) {
-    	cb(null, file.originalname);
+  	fileName=Date.now()+file.originalname;
+    	cb(null,fileName);
   	}
 })	
 const upload=multer({
@@ -117,6 +122,14 @@ const counsellors=new mongoose.Schema({
 });
 const Counsellors=mongoose.model("counsellors",counsellors);
 
+const admissionPage =new mongoose.Schema({
+	name:String,
+	course:String,
+	email:String,
+	notified:Boolean
+});
+const Admission=mongoose.model("Admission",admissionPage);
+
 //============================
 //           Routes
 //============================
@@ -160,7 +173,24 @@ app.get("/counsellingData",isLoggedIn,function(req,res){
 	});
 
 });
-
+app.post("/counsellingData/:id",isLoggedIn,function(req,res){
+	CounsellingPage.findByIdAndUpdate(req.params.id,{notified:"true"},function(err,returnData){
+		if(err){
+              console.log("Error");
+  	    }else{
+              res.redirect("/counsellingData");
+  	    }
+	});
+});
+app.post("/counsellingData/:id/remove",isLoggedIn,function(req,res){
+	CounsellingPage.findByIdAndRemove(req.params.id,function(err,returnData){
+		if(err){
+              console.log("Error");
+  	    }else{
+              res.redirect("/counsellingData");
+  	    }
+	});
+});
 
 app.get("/counsellor",function(req,res){
 	Counsellors.find({},function(err,Counsellors){
@@ -192,7 +222,7 @@ app.post("/newCounsellor",uploadImage.single('upload'),function(req,res){
 		name:req.body.name,
 		designation:req.body.designation,
 		bio_data:req.body.bio_data,
-		image:req.file.originalname
+		image:fileName
 	});
 	Counsellors.create(counsellor,function(err,newCounsellor){
         if(err){
@@ -213,7 +243,86 @@ app.get("/counsellorsList",isLoggedIn,function(req,res){
 	});
 	
 });
+app.post("/counsellorsList/:id",isLoggedIn,function(req,res){
+	Counsellors.findByIdAndUpdate(req.params.id,{notified:"true"},function(err,returnData){
+		if(err){
+              console.log("Error");
+  	    }else{
+              res.redirect("/counsellorsList");
+  	    }
+	});
+});
+app.post("/counsellorsList/:id/remove",isLoggedIn,function(req,res){
+	var filePath;
+	Counsellors.findById(req.params.id,function(err,returnData){
+		filePath=returnData.image;
+		console.log(filePath);
+	});
+	Counsellors.findByIdAndRemove(req.params.id,function(err,returnData){
+		if(err){
+              console.log("Error");
+  	    }else{
+  	    	 fs.unlink('uploads/'+filePath, function(err){
+                if (err){
+                	console.log(err);
+                }
+                console.log('path/file.txt was deleted');
+              });
+              res.redirect("/counsellorsList");
+  	    }
+	});
+});
 
+
+
+
+app.get("/admission",function(req,res){
+	res.render("admission");
+});
+app.post("/admission",function(req,res){
+	var admission=new Admission({
+		name:req.body.name,
+		course:req.body.course,
+		email:req.body.email,
+		notified:false
+
+	});
+	Admission.create(admission,function(err,admission){
+        	if(err){
+             console.log("Error");
+        	}else{
+             res.redirect("/admission");
+        	}
+        });
+});
+app.get("/admissionNotification",isLoggedIn,function(req,res){
+	Admission.find({},function(err,Admission){
+		if(err){
+			console.log(err);
+		}else{
+			res.render("admissionNotification",{Admission:Admission});
+		}
+	});
+
+});
+app.post("/admissionNotification/:id",isLoggedIn,function(req,res){
+	Admission.findByIdAndUpdate(req.params.id,{notified:"true"},function(err,returnData){
+		if(err){
+              console.log("Error");
+  	    }else{
+              res.redirect("/admissionNotification");
+  	    }
+	});
+});
+app.post("/admissionNotification/:id/remove",isLoggedIn,function(req,res){
+	Admission.findByIdAndRemove(req.params.id,function(err,returnData){
+		if(err){
+              console.log("Error");
+  	    }else{
+              res.redirect("/admissionNotification");
+  	    }
+	});
+});
 
 app.get("/kolos",function(req,res){
 	res.render("kolos");
@@ -233,6 +342,26 @@ app.get("/careersNotification",isLoggedIn,function(req,res){
 	});
 
 });
+app.post("/careersNotification/:id",isLoggedIn,function(req,res){
+	CareersNotification.findByIdAndUpdate(req.params.id,{notified:"true"},function(err,returnData){
+		if(err){
+              console.log("Error");
+  	    }else{
+              res.redirect("/careersNotification");
+  	    }
+	});
+});
+app.post("/careersNotification/:id/remove",isLoggedIn,function(req,res){
+	CareersNotification.findByIdAndRemove(req.params.id,function(err,returnData){
+		if(err){
+              console.log("Error");
+  	    }else{
+              res.redirect("/careersNotification");
+  	    }
+	});
+});
+
+
 
 app.get("/careersApplication",isLoggedIn,function(req,res){
 	CareersApplication.find({},function(err,CareersApplication){
@@ -258,6 +387,36 @@ app.post("/careers/notification",function(req,res){
         }
 	});
 });
+app.post("/careersApplication/:id",isLoggedIn,function(req,res){
+	CareersApplication.findByIdAndUpdate(req.params.id,{notified:"true"},function(err,returnData){
+		if(err){
+              console.log("Error");
+  	    }else{
+              res.redirect("/careersApplication");
+  	    }
+	});
+});
+app.post("/careersApplication/:id/remove",isLoggedIn,function(req,res){
+	var filePath;
+	CareersApplication.findById(req.params.id,function(err,returnData){
+		filePath=returnData.file;
+		console.log(filePath);
+	});
+	CareersApplication.findByIdAndRemove(req.params.id,function(err,returnData){
+		if(err){
+              console.log("Error");
+  	    }else{
+  	    	  fs.unlink('uploads/'+filePath, function(err){
+                if (err){
+                	console.log(err);
+                }
+                console.log('path/file.txt was deleted');
+              });
+              res.redirect("/careersApplication");
+  	    }
+	});
+});
+
 
 app.get("/contacts",function(req,res){
 	res.render("contacts");
@@ -287,7 +446,24 @@ app.get("/contactsNotification",isLoggedIn,function(req,res){
 	});
 
 });
-
+app.post("/contactsNotification/:id",isLoggedIn,function(req,res){
+	ContactsPage.findByIdAndUpdate(req.params.id,{notified:"true"},function(err,returnData){
+		if(err){
+              console.log("Error");
+  	    }else{
+              res.redirect("/contactsNotification");
+  	    }
+	});
+});
+app.post("/contactsNotification/:id/remove",isLoggedIn,function(req,res){
+	ContactsPage.findByIdAndRemove(req.params.id,function(err,returnData){
+		if(err){
+              console.log("Error");
+  	    }else{
+              res.redirect("/contactsNotification");
+  	    }
+	});
+});
 //============================
 //           Auth routes
 //============================
@@ -339,7 +515,7 @@ app.post("/upload",upload.single('upload'),function(req,res){
 		lastName:req.body.lastName,
 		email:req.body.email,
 		position:req.body.position,
-		file:req.file.originalname,
+		file:fileName,
 		notified:false
 	});
 	CareersApplication.create(application,function(err,newCounsellor){

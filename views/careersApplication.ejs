@@ -27,14 +27,15 @@
 						<a href="/logout">Logout!</a>
 					</div>
 					<div class="nav-link ">
+						<a href="/admissionNotification">admissionNotification</a>
+					</div>
+					<div class="nav-link ">
 						<a href="/counsellingData">counsellingData</a>
 					</div>
 					<div class="nav-link">
 						<a href="/careersNotification">careersNotification</a>
 					</div>
-					<div class="nav-link">
-						<a href="/careersApplication">careersApplication</a>
-					</div>
+					
 					<div class="nav-link">
 						<a href="/contactsNotification">contactsNotification</a>
 					</div>
@@ -64,17 +65,31 @@
 					<th>Position</th>
 					<th>file</th>
 					<th>notified</th>
-					<th>update</th>
+					<th>Control</th>
+					<th>delete button</th>
 				</tr>
 				 <%CareersApplication.forEach(function(application){%>
 				 <tr>
-				 	<th><%=application.firstName%></th>
-				 	<th><%=application.lastName%></th>
-				 	<th><%=application.email%></th>
-				 	<th><%=application.position%></th>
-				 	<th><a href="<%=application.file%>">file</a></th>
-				 	<th><%=application.notified%></th>
-				 	<th></th>
+				 	<td><%=application.firstName%></td>
+				 	<td><%=application.lastName%></td>
+				 	<td><%=application.email%></td>
+				 	<td><%=application.position%></td>
+				 	<td><a href="<%=application.file%>">file</a></td>
+				 	<td><%=application.notified%></td>
+				 	<% if(application.notified){%>
+				 	<td>completed</td>
+				    <%}else{%>
+				    <form method="POST" action="/careersApplication/<%=application._id%>">
+				    	<td><button>update</button></td>
+				    </form>
+				    <%}%>
+				    <form method="POST" action="/careersApplication/<%=application._id%>/remove">
+				    	<% if(application.notified){%>
+				    		<td><button>delete</button></td>
+				    	<%}else{%>
+				    		<td>Not Completed</td>
+				    	<%};%>
+				    </form>
 				 </tr>
 				 <%});%>
 			</table>

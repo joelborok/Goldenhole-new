@@ -27,11 +27,12 @@
 						<a href="/logout">Logout!</a>
 					</div>
 					<div class="nav-link ">
+						<a href="/admissionNotification">admissionNotification</a>
+					</div>
+					<div class="nav-link ">
 						<a href="/counsellingData">counsellingData</a>
 					</div>
-					<div class="nav-link">
-						<a href="/careersNotification">careersNotification</a>
-					</div>
+					
 					<div class="nav-link">
 						<a href="/careersApplication">careersApplication</a>
 					</div>
@@ -60,13 +61,27 @@
 				<tr>
 					<th>Email</th>	
 					<th>notified</th>
-					<th>update</th>
+					<th>Control</th>
+					<th>Delete button</th>
 				</tr>
 				 <%careersNotification.forEach(function(career){%>
 				 <tr>
-				 	<th><%=career.email%></th>
-				 	<th><%=career.notified%></th>
-				 	<th></th>
+				 	<td><%=career.email%></td>
+				 	<td><%=career.notified%></td>
+				 	<% if(career.notified){%>
+				 	<td>completed</td>
+				    <%}else{%>
+				    <form method="POST" action="/careersNotification/<%=career._id%>">
+				    	<td><button>update</button></td>
+				    </form>
+				    <%}%>
+				    <form method="POST" action="/careersNotification/<%=career._id%>/remove">
+				    	<% if(career.notified){%>
+				    		<td><button>delete</button></td>
+				    	<%}else{%>
+				    		<td>Not Completed</td>
+				    	<%};%>
+				    </form>
 				 </tr>
 				 <%});%>
 			</table>

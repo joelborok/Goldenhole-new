@@ -27,6 +27,9 @@
 						<a href="/logout">Logout!</a>
 					</div>
 					<div class="nav-link ">
+						<a href="/admissionNotification">admissionNotification</a>
+					</div>
+					<div class="nav-link ">
 						<a href="/counsellingData">counsellingData</a>
 					</div>
 					<div class="nav-link">
@@ -59,8 +62,7 @@
 					<th>Designation</th>
 					<th>Image</th>
 					<th>Biodata</th>
-					<th>update</th>
-					<th>delete</th>
+					<th>delete button</th>
 				</tr>
 				 <%Counsellors.forEach(function(counsellor){%>
 				 <tr>
@@ -68,8 +70,10 @@
 				 	<td><%=counsellor.designation%></td>
 				 	<td><%=counsellor.image%></td>
 				 	<td><%=counsellor.bio_data.substring(0,60)%></td>
-				 	<td></td>
-				 	<td></td>
+				 	
+				    <form method="POST" action="/counsellorsList/<%=counsellor._id%>/remove">
+				    	<td><button>delete</button></td>
+				    </form>
 				 </tr>
 				 <%});%>
 			</table>
