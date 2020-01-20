@@ -144,6 +144,23 @@ app.get("/about",function(req,res){
 app.get("/counselling",function(req,res){
 	res.render("counselling");
 });
+app.get("/success1",function(req,res){
+	res.render("success1");
+});	
+app.get("/success2",function(req,res){
+	res.render("success2");
+});	
+app.get("/success3",function(req,res){
+	res.render("success3");
+});
+app.get("/success4",function(req,res){
+	res.render("success4");
+});	
+
+app.get("/success5",function(req,res){
+	res.render("success5");
+});	
+
 app.post("/counselling",function(req,res){
 	var counselling=new CounsellingPage({
 		name:req.body.name,
@@ -158,10 +175,12 @@ app.post("/counselling",function(req,res){
         	if(err){
              console.log("Error");
         	}else{
-             res.redirect("/counselling");
+             res.redirect("/success1");
         	}
         });
 });
+
+
 
 app.get("/counsellingData",isLoggedIn,function(req,res){
 	CounsellingPage.find({},function(err,counsellingData){
@@ -252,11 +271,13 @@ app.post("/counsellorsList/:id",isLoggedIn,function(req,res){
   	    }
 	});
 });
+
+
 app.post("/counsellorsList/:id/remove",isLoggedIn,function(req,res){
 	var filePath;
 	Counsellors.findById(req.params.id,function(err,returnData){
 		filePath=returnData.image;
-		console.log(filePath);
+		
 	});
 	Counsellors.findByIdAndRemove(req.params.id,function(err,returnData){
 		if(err){
@@ -291,7 +312,7 @@ app.post("/admission",function(req,res){
         	if(err){
              console.log("Error");
         	}else{
-             res.redirect("/admission");
+             res.redirect("/success2");
         	}
         });
 });
@@ -383,7 +404,7 @@ app.post("/careers/notification",function(req,res){
         if(err){
             console.log("Error");
         }else{
-            res.redirect("/careers");
+            res.redirect("/success3");
         }
 	});
 });
@@ -432,7 +453,7 @@ app.post("/contacts",function(req,res){
         if(err){
             console.log("Error");
         }else{
-            res.redirect("/contacts");
+            res.redirect("/success5");
         }
 	});
 });
@@ -522,7 +543,7 @@ app.post("/upload",upload.single('upload'),function(req,res){
         if(err){
             console.log("Error");
         }else{
-            res.redirect("/careers");
+            res.redirect("/success4");
         }
 	});
 });

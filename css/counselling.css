@@ -6,7 +6,44 @@ body{
 	background-attachment: fixed;
 	background-size: cover;
 }
-.navigation-bar>.nav-wrapper>.links-wrapper>.active a{
+
+.hero{
+	background-color: white;
+	display: flex;
+	justify-content: center;
+	background: rgba(255, 255, 255, 0.5);
+	/*width: 100%;*/
+}
+.hero>.title-wrapper{
+	/*margin-top: 4%;
+	margin-bottom:4%;*/ 
+	padding-left: 30px;
+	border-left: 3px solid #F3A006;
+}
+
+.hero>.title-wrapper>.sub-title{
+	font-size: 2rem;
+	font-weight: 300;
+	margin-bottom: 2%;
+}
+
+.hero>.title-wrapper>.title{
+	font-size: 3rem;
+	font-weight: 300;
+}
+
+
+.form-area> form .form-box>.form-group>.col-sm-8>input.form-control{
+	background-color: #F5F5F5;
+}
+
+
+@media (max-width: 768px) {
+	.form-area{
+		width: 100%!important;
+	}
+}
+/*.navigation-bar>.nav-wrapper>.links-wrapper>.active a{
 	color:#F3A006;
 	border-bottom: 2px solid #F3A006;
 }
@@ -54,7 +91,6 @@ body{
 	display: grid;
 	grid-template-columns:1fr 1fr;
     margin-bottom: 10px;
-	/*grid-column-gap: 10px;*/
 	
 }
 .form-area> form .form-box>.form-row>.form-element>input.form-design{
@@ -77,4 +113,4 @@ body{
 	color: white;
 	padding:5px;
 	width:70px;
-}
+}*/

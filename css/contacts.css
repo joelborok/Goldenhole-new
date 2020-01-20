@@ -31,15 +31,15 @@ body{
 
 .hero>.body-wrapper> form .form-element input{
 	background: #F5F5F5;
-	border-radius: 8px;
+	/*border-radius: 8px;
 	border: 1px solid #707070;
 	height: 20px;
-	width: 250px;
+	width: 250px;*/
 }
 .hero>.body-wrapper> form .form-element textarea{
 	background: #F5F5F5;
 	width: 250px;	
-	border-color: #707070;
+	/*border-color: #707070;*/
 }
 .hero>.body-wrapper> form .form-button{
 	display: flex;
@@ -69,16 +69,16 @@ body{
 	justify-content: center;
 }
 
-.address-wrapper>.container>.contact{
+.address-wrapper>.containers>.contact{
 	width:250px;
 
 }
-.address-wrapper>.container>.contact i{
+.address-wrapper>.containers>.contact i{
 	color:#707070;
 	font-size: 2rem;
 
 }
-.address-wrapper>.container>.contact span{
+.address-wrapper>.containers>.contact span{
 	font-size: 0.8rem;
 	vertical-align: super;
 	padding-left: 10px;

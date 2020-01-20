@@ -38,18 +38,17 @@ body{
 	
 }
 .scroller{
-	margin-top: 2%;
-	margin-left: 3%;
 	display:grid;
+	grid-column-gap: 5%;
 	grid-template-columns: auto auto auto;
 }
 
 .images-collection{
 	background-color: transparent;
-	padding:0px 80px;
+	/*padding:0px 80px;*/
   	width: 350px;
   	height: 500px;
- 	/*border: 1px solid #f1f1f1;*/
+ 
 }
 
 .images-collection>.image-wrapper{
@@ -66,7 +65,7 @@ body{
   	width: 100%;
   	height: 100%;
   	visibility: hidden;
-  	/*overflow: hidden;*/
+  	overflow: hidden;
   	top: 0;
     left: 0;
     bottom: 0;
@@ -75,21 +74,26 @@ body{
     border: 5px solid rgba(0, 0, 0, 0.1);
     background-color: rgba(255, 255, 255, 0.90);
     opacity: 0;
-  	/*top:35%;*/
   	color:white;
 
 }
 .images-collection>.image-wrapper> a .image-hover>.text{
 	margin-top: 120px;
     text-align: center;
+     text-overflow: hidden;
     color: #222;
+    width: 100%;
 }
 .images-collection .image-wrapper:hover a .image-hover{
  	visibility: visible;
  	 opacity: 1;
-  	/*top:35%;*/
+ 
 }
 .images-collection .image-wrapper:hover a .image-hover.text{
+	 text-align: center;
+    color: #222;
+    width: 100%;
+    text-overflow: hidden;
  	top:35%;
 }
 

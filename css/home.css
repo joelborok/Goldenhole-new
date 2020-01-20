@@ -6,10 +6,6 @@ body{
 	background-attachment: fixed;
 	background-size: cover;
 }
-.navigation-bar>.nav-wrapper>.links-wrapper>.active a{
-	color:#F3A006;
-	border-bottom: 2px solid #F3A006;
-}
 
 .hero{
 	display: flex;
@@ -20,34 +16,9 @@ body{
 	padding:80px 0px;
 	margin-top: 5%;
 }
-.hero>.body-wrapper>.title{
-	text-align: center;
-	font-weight: 300;
-	font-size: 4rem;
+.hero>.body-wrapper>.custom-text{
+	font-size: 1.8em;
 }
-.hero>.body-wrapper>.sub-title{
-	text-align: center;
-	font-weight: 300;
-	font-size: 2rem;
-	
-}
-.hero>.body-wrapper>.sub-title>.highlight{
+.hero>.body-wrapper>.custom-text>.highlight{
 	color: red;
-}
-
-@media(max-width:800px){
-	.hero>.body-wrapper>.title{
-		font-size: 3rem;
-	}
-	.hero>.body-wrapper>.sub-title{
-		font-size: 1.5rem;
-	}
-}
-@media(max-width:450px){
-	.hero>.body-wrapper>.title{
-		font-size: 2rem;
-	}
-	.hero>.body-wrapper>.sub-title{
-		font-size: 1rem;
-	}
 }
